@@ -3,8 +3,8 @@ document.querySelector("#user").addEventListener("submit", takesubmit)
 function takesubmit(e){
     e.preventDefault()
     let user1 = {
-        name:e.target.name.value,
-        Email:e.target.Email.value
+        users:e.target.name.value,
+        users:e.target.Email.value
     }
     renderuser(user1)
     submitData(user1)
@@ -24,7 +24,8 @@ function submitData(user1){
     fetch("http://localhost:3000/users", {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
         },
         body: JSON.stringify(user1)
     })
